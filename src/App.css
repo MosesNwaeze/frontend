@@ -1,22 +1,56 @@
+body {
+  padding: 0px 40px;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: left;
+  background: gray;
   color: white;
+  font-family: sans-serif, serif, Georgia, "New Cambria", "Times New Roman",
+    Times;
+  border: black solid 1px;
 }
 
-.App-link {
-  color: #09d3ac;
+.Header {
+  border: tomato solid 0.5px;
+}
+
+.Content {
+  border: springgreen solid 0.5px;
+  
+}
+
+.Sidebar {
+  border: steelblue solid 0.5px;
+}
+
+.Footer {
+  height: 200px;
+  border: thistle solid 0.5px;
+}
+
+.Logo {
+  text-align: left;
+  border: solid black 2px;
+}
+
+.Logo img {
+  width: 100px;
+  height: 100px;
+  background: brown;
+}
+
+.UserImage img {
+  height: 200px;
+  width: 200px;
+}
+
+.UserImage {
+  border: solid blue 2px;
+  text-align: center;
+  padding: 0;
+}
+
+.SiteName {
+  border: solid red 1px;
 }
