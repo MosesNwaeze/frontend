@@ -6,9 +6,17 @@ import Content from "./components/content/Content.js";
 import Footer from "./components/footer/Footer.js";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      token: ""
+    };
+  }
+
   render() {
     return (
       <div className="App container">
+        <div className="row Header"></div>
         <div className="row Header">
           <div className="col-sm-12">
             <Header />

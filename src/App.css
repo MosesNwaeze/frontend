@@ -4,53 +4,41 @@ body {
 
 .App {
   text-align: left;
-  background: gray;
+  background: #673ab7;
   color: white;
   font-family: sans-serif, serif, Georgia, "New Cambria", "Times New Roman",
     Times;
-  border: black solid 1px;
 }
 
 .Header {
-  border: tomato solid 0.5px;
+  background: #23133d;
 }
 
 .Content {
-  border: springgreen solid 0.5px;
-  
 }
 
 .Sidebar {
-  border: steelblue solid 0.5px;
 }
 
 .Footer {
   height: 200px;
-  border: thistle solid 0.5px;
 }
 
 .Logo {
   text-align: left;
-  border: solid black 2px;
-}
-
-.Logo img {
-  width: 100px;
-  height: 100px;
-  background: brown;
-}
-
-.UserImage img {
-  height: 200px;
-  width: 200px;
-}
-
-.UserImage {
-  border: solid blue 2px;
-  text-align: center;
-  padding: 0;
 }
 
 .SiteName {
-  border: solid red 1px;
+}
+
+.success {
+  background: blanchedalmond;
+  color: green;
+  font-style: normal;
+}
+
+.error {
+  background: honeydew;
+  color: red;
+  font-style: normal;
 }

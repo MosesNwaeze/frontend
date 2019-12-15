@@ -8,22 +8,28 @@ import CreateGif from "../gif/Create.js";
 import DeleteGif from "../gif/Delete.js";
 import SearchArticle from "../article/Search.js";
 import SearchGif from "../gif/Search.js";
+import ArticleComment from "../article/Comment";
+import GifComment from "../gif/Comment";
 
 class Content extends React.Component {
-    
   render() {
     return (
       <div className="Content">
         <Router>
           <Switch>
-            <Route path="/feed" component={Feed} />
-            <Route path="/create-article" component={CreateArticle} />
-            <Route path="/edit-article" component={EditArticle} />
-            <Route path="/delete-article" component={DeleteArticle} />
-            <Route path="/create-gif" component={CreateGif} />
-            <Route path="/delete-gif" component={DeleteGif} />
-            <Route path="/search-article" component={SearchArticle} />
-            <Route path="/search-gif" component={SearchGif} />
+            <Route path="/app/feed" component={Feed} exact/>
+            <Route path="/app/create-article" component={CreateArticle} exact/>
+            <Route path="/app/edit-article/:id" component={EditArticle} exact/>
+            <Route
+              path="/app/delete-article/:id/:email"
+              component={DeleteArticle} exact
+            />
+            <Route path="/app/create-gif" component={CreateGif} exact/>
+            <Route path="/app/delete-gif/:id/:email" component={DeleteGif} exact/>
+            <Route path="/app/search-article/:id" component={SearchArticle} exact/>
+            <Route path="/app/search-gif/:id" component={SearchGif} exact/>
+            <Route path="/app/comment-gif/:id" component={GifComment} exact/>
+            <Route path="/app/comment-article/:id" component={ArticleComment} exact/>
           </Switch>
         </Router>
       </div>

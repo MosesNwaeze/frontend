@@ -11,16 +11,7 @@ class Sidebar extends React.Component {
               <hr />
               <ul>
                 <li>
-                  <Link to="/create-article">Create Article</Link>
-                </li>
-                <li>
-                  <Link to="/edit-article">Edit Article</Link>
-                </li>
-                <li>
-                  <Link to="/delete-article">Delete Article</Link>
-                </li>
-                <li>
-                  <Link to="/search-article">View Article</Link>
+                  <Link to="/app/create-article">Create Article</Link>
                 </li>
               </ul>
             </div>
@@ -29,20 +20,19 @@ class Sidebar extends React.Component {
               <hr />
               <ul>
                 <li>
-                  <Link to="/create-gif">Create Gif</Link>
-                </li>
-                <li>
-                  <Link to="/delete-gif">Delete Article</Link>
-                </li>
-                <li>
-                  <Link to="/search-gif">View Gif</Link>
+                  <Link to="/app/create-gif">Create Gif</Link>
                 </li>
               </ul>
             </div>
-            <h1 className="h1">
-              <Link to="/feed">Feed</Link>
-            </h1>
-            <hr />
+            <div className="col-md-12">
+              <h1 className="h1">Feed</h1>
+              <hr />
+              <ul>
+                <li>
+                  <Link to="/app/feed">View Feed</Link>
+                </li>
+              </ul>
+            </div>
           </Router>
         </div>
       </div>
