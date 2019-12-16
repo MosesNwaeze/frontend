@@ -31,15 +31,13 @@ class Header extends React.Component {
           const { message, image } = data;
           localStorage.setItem("profile-pic", image.url);
           this.setState({ message });
-          console.log(image);
         } else {
           const { message } = data;
           this.setState({ message });
         }
       })
       .catch(error => console.error(error));
-      document.querySelector(`form[name="profile-pic"]`).style.display = 'none';
-
+    document.querySelector(`form[name="profile-pic"]`).style.display = "none";
   }
 
   profilePic(event) {
@@ -47,8 +45,6 @@ class Header extends React.Component {
     this.setState({ pic });
   }
   render() {
-    const path = this.state.src;
-    console.log(path);
     return (
       <div className="container-fluid">
         <div className="row py-5">

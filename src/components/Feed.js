@@ -134,7 +134,6 @@ class Feed extends React.Component {
     const { data } = this.state;
     const pathSearchArticle = "/app/search-article/";
     const pathSearchGif = "/app/search-gif/";
-    console.log(data);
     return (
       <div className="row">
         <div className="col-md-12" style={{ marginBottom: "30px" }}>
