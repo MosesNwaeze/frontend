@@ -13,12 +13,8 @@ class Switcher extends React.Component {
           <div>
             <Switch>
               <Route component={Login} path="/" exact />
-              <Route
-                component={CreateAccount}
-                path="/admin/create-account"
-                exact
-              />
-              <Route component={Admin} path="/admin" exact />
+              <Route component={CreateAccount} path="/admin/create-account" />
+              <Route component={Admin} path="/admin" />
               <Route component={App} path="/app" />
             </Switch>
           </div>

@@ -18,39 +18,21 @@ class Content extends React.Component {
         <Router basename="/">
           <div>
             <Switch>
-              <Route path="/app/feed" component={Feed} exact />
-              <Route
-                path="/app/create-article"
-                component={CreateArticle}
-                exact
-              />
-              <Route
-                path="/app/edit-article/:id"
-                component={EditArticle}
-                exact
-              />
+              <Route path="/app/feed" component={Feed} />
+              <Route path="/app/create-article" component={CreateArticle} />
+              <Route path="/app/edit-article/:id" component={EditArticle} />
               <Route
                 path="/app/delete-article/:id/:email"
                 component={DeleteArticle}
-                exact
               />
-              <Route path="/app/create-gif" component={CreateGif} exact />
-              <Route
-                path="/app/delete-gif/:id/:email"
-                component={DeleteGif}
-                exact
-              />
-              <Route
-                path="/app/search-article/:id"
-                component={SearchArticle}
-                exact
-              />
-              <Route path="/app/search-gif/:id" component={SearchGif} exact />
-              <Route path="/app/comment-gif/:id" component={GifComment} exact />
+              <Route path="/app/create-gif" component={CreateGif} />
+              <Route path="/app/delete-gif/:id/:email" component={DeleteGif} />
+              <Route path="/app/search-article/:id" component={SearchArticle} />
+              <Route path="/app/search-gif/:id" component={SearchGif} />
+              <Route path="/app/comment-gif/:id" component={GifComment} />
               <Route
                 path="/app/comment-article/:id"
                 component={ArticleComment}
-                exact
               />
             </Switch>
           </div>
