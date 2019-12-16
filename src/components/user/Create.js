@@ -1,5 +1,5 @@
 import React from "react";
-
+import {useHistory} from 'react-router-dom';
 class CreateAccount extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +13,8 @@ class CreateAccount extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    let history = useHistory();
+
     const elements = document.querySelector(`form[name = User]`).elements;
     const formData = {};
     for (let i = 0; i < elements.length; i++) {
@@ -37,7 +39,7 @@ class CreateAccount extends React.Component {
               const { message } = data;
               this.setState({ message });
               setInterval(() => {
-                window.location = "/#/";
+                history.push('/');
               }, 5000);
             } else {
               const { message } = data;
@@ -69,7 +71,7 @@ class CreateAccount extends React.Component {
               const { message } = data;
               this.setState({ message });
               setInterval(() => {
-                window.location = "/#/";
+                history.push('/');
               }, 5000);
             } else {
               const { message } = data;

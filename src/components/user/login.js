@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Link } from "react-router-dom";
+import { HashRouter as Router, Link, useHistory } from "react-router-dom";
 
 class Login extends React.Component {
   constructor(props) {
@@ -13,6 +13,8 @@ class Login extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
+    let history = useHistory();
+
     const formEle = new FormData(document.querySelector(`form[name = login]`));
     const formData = {
       employeeid: formEle.get("employeeid"),
@@ -41,9 +43,9 @@ class Login extends React.Component {
           localStorage.setItem("lastname", data.lastname);
           const userId = data.userId;
           if (userId.toUpperCase().substr(0, 3) === "ADM") {
-            return (window.location = "/#/admin");
+            history.push("/admin");
           } else {
-            return (window.location = "/#/app/feed");
+            history.push("/app/feed");
           }
         } else {
           const { message } = data;
