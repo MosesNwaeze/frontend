@@ -3,35 +3,42 @@ import { Link, HashRouter as Router } from "react-router-dom";
 class Sidebar extends React.Component {
   render() {
     return (
-      <div className="container-fliud Sidebar">
+      <div className="container">
         <div className="row vertical">
           <Router>
-            <div className="col-md-12">
-              <h1 className="h1">Article</h1>
-              <hr />
-              <ul>
-                <li>
-                  <Link to="/app/create-article">Create Article</Link>
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-12">
-              <h1 className="h1">Gif</h1>
-              <hr />
-              <ul>
-                <li>
-                  <Link to="/app/create-gif">Create Gif</Link>
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-12">
-              <h1 className="h1">Feed</h1>
-              <hr />
-              <ul>
-                <li>
-                  <Link to="/app/feed">View Feed</Link>
-                </li>
-              </ul>
+            <div className="col-md-12 d-block">
+              <h1
+                className="display-5 font-weight-bolder mt-5 mb-4"
+                style={{ color: "#2B0639" }}
+              >
+                Actions
+              </h1>
+              <hr style={{ backgroundColor: "white" }}/>
+              <div className="list-group">
+                <Link
+                  to="/app/create-article"
+                  className="list-group-item list-group-item-action list-group-item-success mb-4"
+                  style={{ background: "#6338B0", color: "white" }}
+                >
+                  Create Article
+                </Link>
+
+                <Link
+                  to="/app/create-gif"
+                  className="list-group-item list-group-item-action list-group-item-success mb-4"
+                  style={{ background: "#6338B0", color: "white" }}
+                >
+                  Create Gif
+                </Link>
+
+                <Link
+                  to="/app/feed"
+                  className="list-group-item   list-group-item-action list-group-item-success mb-4"
+                  style={{ background: "#6338B0", color: "white" }}
+                >
+                  View Feed
+                </Link>
+              </div>
             </div>
           </Router>
         </div>

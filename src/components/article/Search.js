@@ -15,8 +15,6 @@ class SearchArticle extends React.Component {
     };
     this.getArticle = this.getArticle.bind(this);
     this.flagButton = this.flagButton.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
     this.checkUser = this.checkUser.bind(this);
   }
 
@@ -28,7 +26,7 @@ class SearchArticle extends React.Component {
   checkUser() {
     const email = localStorage.getItem("email");
     const validUser = this.state.comments.some(item => item.authorId === email);
-    
+
     if (validUser) {
       const deleteButtons = document.querySelectorAll(`button[name="delete"]`);
       const editButtons = document.querySelectorAll(`button[name="edit"]`);
@@ -41,14 +39,17 @@ class SearchArticle extends React.Component {
     }
   }
 
- async getArticle(id) {
-   await fetch(`https://teamwork-backends.herokuapp.com/api/v1/articles/${parseInt(id)}`, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-        "Accept-Version": 1.5
+  async getArticle(id) {
+    await fetch(
+      `https://teamwork-backends.herokuapp.com/api/v1/articles/${parseInt(id)}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+          "Accept-Version": 1.5
+        }
       }
-    })
+    )
       .then(response => response.json())
       .then(({ status, data, error }) => {
         if (status === "success") {
@@ -63,31 +64,6 @@ class SearchArticle extends React.Component {
       })
       .catch(error => console.error(error));
   }
-
-  async handleDelete(event) {
-    event.preventDefault();
-    const item = event.target;
-    const id = parseInt(item.id);
-    console.log(id);
-    await fetch(`https://teamwork-backends.herokuapp.com/api/v1/articles/comments/${id}/flag`, {
-      method: "DELETE",
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-        "Accept-Version": 1.5
-      }
-    })
-      .then(response => response.json())
-      .then(({ status, data }) => {
-        if (status === "success") {
-          const { message } = data;
-          this.setState({ deleteMessage: message });
-        }
-      })
-      .catch(error => console.error(error));
-  }
-
-  async handleEdit(event) {}
-
   async flagButton(event) {
     const item = event.target;
     const commentId = item.name;
@@ -125,80 +101,120 @@ class SearchArticle extends React.Component {
     const { message } = this.state;
     if (message) {
       return (
-        <div className="row" style={{ marginTop: "70px" }}>
-          <dl className="col-md-12" style={{ textAlign: "center" }}>
-            <dt>DATE POSTED</dt>
-            <dd>{article.createdOn}</dd>
-            <dt>TITLE OF ARTICLE</dt>
-            <dd>{article.title}</dd>
-            <dd>
-              <h5 style={{ color: "orange", marginTop: "30px" }}>
-                <i>
-                  <em>{message}</em>
-                </i>
-              </h5>
-            </dd>
-          </dl>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1
+                className="display-5 font-weight-bolder mt-5 mb-4"
+                style={{ color: "#2B0639" }}
+              >
+                Reactions on Article
+              </h1>
+              <hr style={{ backgroundColor: "white" }} />
+            </div>
+            <dl className="col-md-12 dl">
+              <dt style={{ color: "#6338B0" }}>DATE POSTED</dt>
+              <dd>{article.createdOn}</dd>
+              <dt style={{ color: "#6338B0" }}>TITLE OF ARTICLE</dt>
+              <dd>{article.title}</dd>
+              <dd>
+                <h5 className="mt-2" style={{ color: "#F8A300" }}>
+                  <i>
+                    <em>{message}</em>
+                  </i>
+                </h5>
+              </dd>
+            </dl>
+          </div>
         </div>
       );
     }
     return (
-      <div className="row">
-        <dl className="col-md-12" style={{ textAlign: "center" }}>
-          <dt>Date Posted</dt>
-          <dd>{article.createdOn}</dd>
-          <dt>Title of article</dt>
-          <dd>{article.title}</dd>
-        </dl>
-        {comments.map(item => {
-          return (
-            <dl
-              key={item.commentId}
-              className="col-md-12 "
-              style={{ paddingLeft: "30px", marginTop: "10px" }}
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h1
+              className="display-5 font-weight-bolder mt-5 mb-4"
+              style={{ color: "#2B0639" }}
             >
-              <dt>Comment ID</dt>
-              <dd>{item.commentId}</dd>
-              <dt>Comment</dt>
-              <dd>{item.comment}</dd>
-              <dt>Author ID</dt>
-              <dd>{item.authorId}</dd>
-              <div
-                className="row"
-                style={{ marginLeft: "3px", marginRight: "15px" }}
-              >
-                <button
-                  onClick={this.flagButton}
-                  name={item.commentId}
-                  id="flag"
-                  className="col"
-                  style={{ color: "red", backgroundColor: "white" }}
-                >
-                  FLAG OFF
-                </button>
-                <button
-                  name="edit"
-                  className="col"
-                  onClick={this.handleEdit}
-                  style={{ display: "none" }}
-                >
-                  Edit
-                </button>
-                <button
-                  name="delete"
-                  className="col"
-                  onClick={this.handleDelete}
-                  style={{ display: "none" }}
-                  id={item.commentId}
-                >
-                  Delete
-                </button>
-              </div>
+              Reactions on Article
+            </h1>
+            <hr style={{ backgroundColor: "white" }} />
+          </div>
 
-              <hr style={{ backgroundColor: "#383838" }} />
-            </dl>
-          );
-        })}
+          <dl className="col-md-12 dl">
+            <dt
+              className="display-5 font-weight-bolder h4"
+              style={{ color: "#2B0639" }}
+            >
+              DATE POSTED
+            </dt>
+            <dd className="font-weight-lighter text-monospace h3">
+              {article.createdOn}
+            </dd>
+            <dt
+              className="display-5 font-weight-bolder h4"
+              style={{ color: "#2B0639" }}
+            >
+              TITLE OF ARTICLE
+            </dt>
+            <dd className="font-weight-lighter text-monospace h3">
+              {article.title}
+            </dd>
+            <hr style={{ backgroundColor: "white" }} />
+          </dl>
+          {comments.map(item => {
+            return (
+              <dl key={item.commentId} className="col-md-12 ">
+                <dt
+                  style={{ color: "#6338B0" }}
+                  className="display-5 font-weight-bolder h4"
+                >
+                  Comment ID
+                </dt>
+                <dd className="font-weight-lighter text-monospace h3">
+                  {item.commentId}
+                </dd>
+                <dt
+                  style={{ color: "#6338B0" }}
+                  className="display-5 font-weight-bolder h4 text-break"
+                >
+                  Comment
+                </dt>
+                <dd className="font-weight-lighter text-monospace h3">
+                  {item.comment}
+                </dd>
+                <dt
+                  style={{ color: "#6338B0" }}
+                  className="display-5 font-weight-bolder h4"
+                >
+                  Author ID
+                </dt>
+                <dd className="font-weight-lighter text-monospace h3">
+                  {localStorage.getItem("firstname") +
+                    " " +
+                    localStorage.getItem("lastname")}
+                </dd>
+                <div
+                  className="row"
+                  style={{ marginLeft: "3px", marginRight: "15px" }}
+                >
+                  <button
+                    onClick={this.flagButton}
+                    name={item.commentId}
+                    id="flag"
+                    className="col"
+                    style={{ color: "red", backgroundColor: "white" }}
+                  >
+                    FLAG OFF
+                  </button>
+                </div>
+
+                <hr style={{ backgroundColor: "white" }} />
+              </dl>
+            );
+          })}
+        </div>
       </div>
     );
   }

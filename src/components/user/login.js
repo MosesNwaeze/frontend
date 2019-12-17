@@ -2,22 +2,19 @@ import React from "react";
 import { HashRouter as Router, Link } from "react-router-dom";
 
 class Login extends React.Component {
-    constructor(props) {
+  constructor(props) {
     super(props);
-    
+
     this.state = {
       message: "",
       indicator: 1
     };
-    
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
 
   async handleSubmit(event) {
     event.preventDefault();
-    
-
     const formEle = new FormData(document.querySelector(`form[name = login]`));
     const formData = {
       employeeid: formEle.get("employeeid"),
@@ -72,7 +69,10 @@ class Login extends React.Component {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-12 text-white">
-            <div className="card o-hidden border-0 shadow-lg my-5 bg-gradient-primary">
+            <div
+              className="card o-hidden border-0 shadow-lg my-5"
+              style={{ background: "#8967C6" }}
+            >
               <div className="card-body p-0">
                 <div className="p-5">
                   <div className="my-5">

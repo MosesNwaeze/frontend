@@ -28,15 +28,18 @@ class ArticleComment extends React.Component {
     }
     const serializedData = JSON.stringify(formData);
 
-    fetch(`https://teamwork-backends.herokuapp.com/api/v1/articles/${id}/comment`, {
-      method: "POST",
-      body: serializedData,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-        "Accept-Version": 1.5,
-        "Content-Type": "application/x-www-form-urlencoded"
+    fetch(
+      `https://teamwork-backends.herokuapp.com/api/v1/articles/${id}/comment`,
+      {
+        method: "POST",
+        body: serializedData,
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+          "Accept-Version": 1.5,
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
       }
-    })
+    )
       .then(response => response.json())
       .then(({ status, data }) => {
         if (status === "success") {
@@ -53,48 +56,40 @@ class ArticleComment extends React.Component {
     return (
       <div className="container">
         <div className="col-md-12">
-          <h3
-            style={{
-              color: "green",
-              marginBottom: "30px",
-              marginTop: "20px",
-              fontWeight: "bold",
-              backgroundColor: "white"
-            }}
+          <h1
+            className="display-5 font-weight-bolder mt-5 mb-4"
+            style={{ color: "#2B0639" }}
           >
+            Compose Your Comment
+          </h1>
+          <hr style={{ backgroundColor: "white" }} />
+          <h3 className="display-5 font-weight-bolder mt-3 text-success">
             {message}
-          </h3>
-          <h3
-            style={{
-              color: "black",
-              marginBottom: "20px",
-              textAlign: "center"
-            }}
-          >
-            Compose your comment
           </h3>
         </div>
         <div className="col-md-12">
-          <form name="article-comment" onSubmit={this.createComment}>
-            <p>
-              <label
-                htmlFor="comment"
-                style={{ color: "black", fontWeight: "bold" }}
-              >
-                Type comment:&nbsp;&nbsp;&nbsp;
-              </label>
+          <form
+            name="article-comment"
+            onSubmit={this.createComment}
+            className="was-validated"
+          >
+            <div className="form-group">
+              <label htmlFor="comment">Comment:</label>
               <textarea
+                rows="8"
+                cols="70"
+                placeholder="Comment here..."
                 name="comment"
                 id="comment"
-                placeholder="comment here..."
-                rows="10"
-                cols="60"
+                className="form-control"
+                required
               ></textarea>
-            </p>
-            <p>
-              <button type="submit">Post Comment</button>
-              <button type="reset">Reset</button>
-            </p>
+            </div>{" "}
+            <div className="form-group">
+              <button type="submit" className="btn btn-success form-control">
+                Create Comment
+              </button>
+            </div>
           </form>
         </div>
       </div>

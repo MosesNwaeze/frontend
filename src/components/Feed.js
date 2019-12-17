@@ -136,17 +136,22 @@ class Feed extends React.Component {
     const pathSearchGif = "/app/search-gif/";
     return (
       <div className="row">
-        <div className="col-md-12" style={{ marginBottom: "30px" }}>
-          <h3 className="h3 text-center my-3 display-3">Current Feeds</h3>
-          <hr style={{ backgroundColor: "#C8B5E8" }} />
+        <div className="col-md-12 mb-4">
+          <h1
+            className="display-5 font-weight-bolder mt-5 mb-4"
+            style={{ color: "#2B0639" }}
+          >
+            Current Feeds
+          </h1>
+          <hr style={{ backgroundColor: "white" }} />
         </div>
-        <dl className="col-md-12">
+        <dl className="col-md-12 dl">
           {data.map(item => {
             return (
-              <div key={item.id} style={{ marginLeft: "10px" }}>
+              <div key={item.id} className="mt-2">
                 <div className="row">
                   <div className="col-md-12">
-                    <dt>title</dt>
+                    <dt>Title</dt>
                     <dd>{item.title}</dd>
                     <dt>Content</dt>
                     <dd>
@@ -247,7 +252,7 @@ class Feed extends React.Component {
                     )}
                   </p>
                 </div>
-                <hr style={{ backgroundColor: "#383838" }} />
+                <hr style={{ backgroundColor: "white" }} />
               </div>
             );
           })}

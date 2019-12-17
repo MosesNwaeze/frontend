@@ -1,5 +1,6 @@
 body {
   padding: 0px 40px;
+  background: #6541AA;
 }
 
 .App {
@@ -11,17 +12,20 @@ body {
 }
 
 .Header {
-  background: #23133d;
+  background: #2B0639;
 }
 
 .Content {
-}
+  background: #AE98D8;
+  width: 100%;
+  }
 
 .Sidebar {
+  background: #AE98D8;
 }
 
 .Footer {
-  height: 200px;
+  background: #2B0639;
 }
 
 .Logo {

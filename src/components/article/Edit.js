@@ -21,15 +21,18 @@ class EditArticle extends React.Component {
       formData[item.name] = item.value;
     }
     const serializedData = JSON.stringify(formData);
-    await fetch(`https://teamwork-backends.herokuapp.com/api/v1/articles/${id}`, {
-      method: "PATCH",
-      body: serializedData,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-        "Accept-Version": 1.5,
-        "Content-Type": "application/x-www-form-urlencoded"
+    await fetch(
+      `https://teamwork-backends.herokuapp.com/api/v1/articles/${id}`,
+      {
+        method: "PATCH",
+        body: serializedData,
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+          "Accept-Version": 1.5,
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
       }
-    })
+    )
       .then(response => response.json())
       .then(({ status, data }) => {
         if (status === "success") {
@@ -43,48 +46,58 @@ class EditArticle extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div
-          className="col-md-12"
-          style={{
-            textAlign: "center",
-            color: "black",
-            fontWeight: "bold",
-            marginBottom: "50px"
-          }}
-        >
-          <h2>Edit article post</h2>
-          <h4 style={{color:'green'}}>{this.state.message}</h4>
-        </div>
-        <div className="col-md-12">
-          <form name="edit" onSubmit={this.handleSubmit}>
-            <p>
-              <label htmlFor="title">
-                Title: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              </label>
-              <input
-                type="text"
-                name="title"
-                id="title"
-                defaultValue={localStorage.getItem("articleTitle")}
-              />
-            </p>
-            <p>
-              <label htmlFor="body">Body:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-              <textarea
-                name="body"
-                id="body"
-                rows="10"
-                cols="70"
-                defaultValue={localStorage.getItem("articleBody")}
-              ></textarea>
-            </p>
-            <p>
-              <button type="submit">Save Change</button>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="reset">Reset Entry</button>
-            </p>
-          </form>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h1
+              className="display-5 font-weight-bolder mt-5 mb-4"
+              style={{ color: "#2B0639" }}
+            >
+              Edit article post
+            </h1>
+            <hr style={{ backgroundColor: "white" }} />
+            <h3 className="display-5 font-weight-bolder mb-3 text-success">
+              {this.state.message}
+            </h3>
+          </div>
+          <div className="col-md-12">
+            <form
+              name="edit"
+              onSubmit={this.handleSubmit}
+              className="was-validated"
+            >
+              <div className="form-group">
+                <label htmlFor="title">Title:</label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  defaultValue={localStorage.getItem("articleTitle")}
+                  className="form-control form-control-user"
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="body">Body:</label>
+                <textarea
+                  rows="8"
+                  cols="70"
+                  defaultValue={localStorage.getItem("articleBody")}
+                  name="body"
+                  id="body"
+                  className="form-control"
+                  required
+                ></textarea>
+              </div>
+
+              <div className="form-group">
+                <button type="submit" className="btn btn-success form-control">
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     );

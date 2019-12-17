@@ -46,8 +46,8 @@ class Header extends React.Component {
   }
   render() {
     return (
-      <div className="container-fluid">
-        <div className="row py-5">
+      <div className="container">
+        <div className="row py-3">
           <div className="col-3 Logo">
             <img
               src="/images/logo3.jpg"
@@ -108,9 +108,9 @@ class Header extends React.Component {
               </label>
               <button
                 type="submit"
-                className="btn form-control"
+                className="btn form-control btn-success"
                 onClick={this.handleProfilePic}
-                style={{ background: "#C8B5E8", color: "white" }}
+                style={{ color: "white" }}
               >
                 Upload
               </button>

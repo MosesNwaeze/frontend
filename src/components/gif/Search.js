@@ -83,56 +83,139 @@ class SearchGif extends React.Component {
     const { message } = this.state;
     if (message) {
       return (
-        <div className="row" style={{ marginTop: "70px" }}>
-          <dl className="col-md-12" style={{ textAlign: "center" }}>
-            <dt>DATE POSTED</dt>
-            <dd>{gif.createdOn}</dd>
-            <dt>TITLE OF GIF</dt>
-            <dd>{gif.title}</dd>
-            <dd>
-              <h5 style={{ color: "orange", marginTop: "30px" }}>
-                <i>
-                  <em>{message}</em>
-                </i>
-              </h5>
-            </dd>
-          </dl>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1
+                className="display-5 font-weight-bolder mt-5 mb-4"
+                style={{ color: "#2B0639" }}
+              >
+                Reactions on Gif
+              </h1>
+              <hr style={{ backgroundColor: "white" }} />
+            </div>
+            <dl className="col-md-12 dl">
+              <dt style={{ color: "#6338B0" }}>DATE POSTED</dt>
+              <dd>{gif.createdOn}</dd>
+              <dt style={{ color: "#6338B0" }}>TITLE OF ARTICLE</dt>
+              <dd>{gif.title}</dd>
+              <dd>
+                <h5 className="mt-2" style={{ color: "#F8A300" }}>
+                  <i>
+                    <em>{message}</em>
+                  </i>
+                </h5>
+              </dd>
+            </dl>
+          </div>
         </div>
       );
     }
     return (
-      <div className="row">
-        <dl
-          className="col-md-12"
-          style={{ textAlign: "left", paddingLeft: "30px" }}
-        >
-          <dt>Date Posted</dt>
-          <dd>{gif.createdOn}</dd>
-          <dt>Title of article</dt>
-          <dd>{gif.title}</dd>
-          <hr style={{ backgroundColor: "#383838" }} />
-        </dl>
-        {comments.map(item => {
-          return (
-            <dl
-              key={item.commentId}
-              className="col-md-12 start"
-              style={{ paddingLeft: "30px", marginTop: "10px" }}
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h1
+              className="display-5 font-weight-bolder mt-5 mb-4"
+              style={{ color: "#2B0639" }}
             >
-              <dt>Comment ID</dt>
-              <dd>{item.commentId}</dd>
-              <dt>Comment</dt>
-              <dd>{item.comment}</dd>
-              <dt>Author ID</dt>
-              <dd>{item.authorId}</dd>
-              <button onClick={this.flagButton} name={item.commentId}>
-                FLAG OFF
-              </button>
-              <hr style={{ backgroundColor: "#383838" }} />
-            </dl>
-          );
-        })}
+              Reactions on Gif
+            </h1>
+            <hr style={{ backgroundColor: "white" }} />
+          </div>
+
+          <dl className="col-md-12 dl">
+            <dt
+              className="display-5 font-weight-bolder h4"
+              style={{ color: "#2B0639" }}
+            >
+              DATE POSTED
+            </dt>
+            <dd className="font-weight-lighter text-monospace h3">
+              {gif.createdOn}
+            </dd>
+            <dt
+              className="display-5 font-weight-bolder h4"
+              style={{ color: "#2B0639" }}
+            >
+              TITLE OF ARTICLE
+            </dt>
+            <dd className="font-weight-lighter text-monospace h3">
+              {gif.title}
+            </dd>
+            <hr style={{ backgroundColor: "white" }} />
+          </dl>
+          {comments.map(item => {
+            return (
+              <dl key={item.commentId} className="col-md-12 ">
+                <dt
+                  style={{ color: "#6338B0" }}
+                  className="display-5 font-weight-bolder h4"
+                >
+                  Comment ID
+                </dt>
+                <dd className="font-weight-lighter text-monospace h3">
+                  {item.commentId}
+                </dd>
+                <dt
+                  style={{ color: "#6338B0" }}
+                  className="display-5 font-weight-bolder h4 text-break"
+                >
+                  Comment
+                </dt>
+                <dd className="font-weight-lighter text-monospace h3">
+                  {item.comment}
+                </dd>
+                <dt
+                  style={{ color: "#6338B0" }}
+                  className="display-5 font-weight-bolder h4"
+                >
+                  Author ID
+                </dt>
+                <dd className="font-weight-lighter text-monospace h3">
+                  {localStorage.getItem("firstname") +
+                    " " +
+                    localStorage.getItem("lastname")}
+                </dd>
+                <div
+                  className="row"
+                  style={{ marginLeft: "3px", marginRight: "15px" }}
+                >
+                  <button
+                    onClick={this.flagButton}
+                    name={item.commentId}
+                    id="flag"
+                    className="col"
+                    style={{ color: "red", backgroundColor: "white" }}
+                  >
+                    FLAG OFF
+                  </button>
+                  <button
+                    name="edit"
+                    className="col"
+                    onClick={this.handleEdit}
+                    style={{ display: "none" }}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    name="delete"
+                    className="col"
+                    onClick={this.handleDelete}
+                    style={{ display: "none" }}
+                    id={item.commentId}
+                  >
+                    Delete
+                  </button>
+                </div>
+
+                <hr style={{ backgroundColor: "white" }} />
+              </dl>
+            );
+          })}
+        </div>
       </div>
+
     );
   }
 }

@@ -33,37 +33,46 @@ class CreateArticle extends React.Component {
   }
   render() {
     return (
-      <div className="container-fluid">
-        <h3 className="h3" style={{ textAlign: "center" }}>
+      <div className="container">
+        <h1
+          className="display-5 font-weight-bolder mt-5 mb-4"
+          style={{ color: "#2B0639" }}
+        >
           Compose Your Article
-        </h3>
-        <h4 className="h4 success" style={{ textAlign: "center" }}>
+        </h1>
+        <hr style={{ backgroundColor: "white" }} />
+        <h4 className="display-5 font-weight-bolder text-center text-success">
           {this.state.message}
         </h4>
-        <form name="article" onSubmit={this.handleSubmit}>
-          <p>
-            <label htmlFor="title">Title:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <form name="article" onSubmit={this.handleSubmit} className="was-validated">
+          <div className="form-group">
+            <label htmlFor="title">Title:</label>
             <input
               type="text"
+              id="title"
               name="title"
               placeholder="Article Title"
-              id="title"
+              className="form-control"
+              required
             />
-          </p>
-          <p>
-            <label htmlFor="body">Body:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          </div>
+          <div className="form-group">
+            <label htmlFor="body">Body:</label>
             <textarea
-              name="body"
-              placeholder="Article Body"
-              id="body"
-              rows="10"
+              rows="8"
               cols="70"
-            />
-          </p>
-          <p>
-            <button type="submit">Send Article</button>
-            <button type="reset">Reset Article</button>
-          </p>
+              placeholder="Article Body"
+              name="body"
+              id="body"
+              className="form-control"
+              required
+            ></textarea>
+          </div>
+          <div className="form-group">
+            <button type="submit" className="btn btn-success form-control">
+              Create Article
+            </button>
+          </div>
         </form>
       </div>
     );

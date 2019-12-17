@@ -29,6 +29,8 @@ class DeleteArticle extends React.Component {
         if (status === "success") {
           const { message } = data;
           this.setState({ message });
+        } else{
+          this.setState({message: data.message});
         }
       })
       .catch(error => console.error(error));
@@ -36,16 +38,12 @@ class DeleteArticle extends React.Component {
 
   render() {
     return (
-      <div
-        style={{
-          marginTop: "40px",
-          color: "green",
-          fontWeight: "bold",
-          backgroundColor: "white",
-          textAlign: "center"
-        }}
-      >
-        <h1>{this.state.message}</h1>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12 display-5 font-weight-bolder mt-5 mb-4">
+            <h1 className="text-success">{this.state.message}</h1>
+          </div>
+        </div>
       </div>
     );
   }

@@ -47,35 +47,47 @@ class CreateGif extends React.Component {
   render() {
     return (
       <div>
-        <h1 style={{ textAlign: "center", fontWeight: "bold", color: "green" }}>
-          {this.state.message}
-        </h1>
-        <h1 style={{ textAlign: "center", fontWeight: "bold", color: "black" }}>
-          Select Your Gif Image
-        </h1>
-        <hr style={{ background: "black" }} />
-        <form
-          name="gif"
-          onSubmit={this.handleSubmit}
-          className="form-group files"
+        <h1
+          className="display-5 font-weight-bolder mt-5 mb-4"
+          style={{ color: "#2B0639" }}
         >
-          <input
-            type="text"
-            name="title"
-            id="title"
-            placeholder="Title"
-            className="form-control"
-          />
-          <input
-            type="file"
-            name="image"
-            id="image"
-            className="form-control"
-            onChange={this.handleChange}
-          />
-
-          <button type="submit" className="btn btn-success btn-block">
-            Post Image
+          Compose Your Gif
+        </h1>
+        <hr style={{ background: "white" }} />
+        <h4 className="display-5 font-weight-bolder text-center text-success">
+          {this.state.message}
+        </h4>
+        <form name="gif" onSubmit={this.handleSubmit} className="was-validated">
+          <div className="form-group">
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Article Title"
+              className="form-control"
+              required
+            />
+          </div>
+          <div className="custom-file mb-3">
+            <input
+              type="file"
+              className="custom-file-input"
+              name="image"
+              id="image"
+              onChange={this.handleChange}
+              required
+            />
+            <label htmlFor="image" className="custom-file-label">
+              {" "}
+              Choose File
+            </label>
+          </div>
+          <button
+            type="submit"
+            className="btn form-control btn-success"
+            style={{ color: "white" }}
+          >
+            Upload
           </button>
         </form>
       </div>

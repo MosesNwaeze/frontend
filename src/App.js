@@ -16,17 +16,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="App container">
-        <div className="row Header"></div>
         <div className="row Header">
           <div className="col-sm-12">
             <Header />
           </div>
         </div>
-        <div className="row no-gutters">
-          <div className="col-sm-4 Sidebar">
+        <div className="row">
+          <div className="col-sm-3 Sidebar">
             <Sidebar />
           </div>
-          <div className="col-sm-8 Content">
+          <div className="col-sm-9 Content">
             <Content />
           </div>
         </div>
