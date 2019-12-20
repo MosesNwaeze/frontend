@@ -8,6 +8,13 @@ class CreateArticle extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentDidMount() {
+    if (localStorage.getItem("token") === null) {
+      window.location = "/#/";
+    }
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const elements = document.querySelector(`form[name = 'article']`).elements;
@@ -44,7 +51,11 @@ class CreateArticle extends React.Component {
         <h4 className="display-5 font-weight-bolder text-center text-success">
           {this.state.message}
         </h4>
-        <form name="article" onSubmit={this.handleSubmit} className="was-validated">
+        <form
+          name="article"
+          onSubmit={this.handleSubmit}
+          className="was-validated"
+        >
           <div className="form-group">
             <label htmlFor="title">Title:</label>
             <input
@@ -69,7 +80,11 @@ class CreateArticle extends React.Component {
             ></textarea>
           </div>
           <div className="form-group">
-            <button type="submit" className="btn btn-success form-control">
+            <button
+              type="submit"
+              className="btn  form-control"
+              style={{ background: "#46216D" }}
+            >
               Create Article
             </button>
           </div>

@@ -12,6 +12,9 @@ class DeleteGif extends React.Component {
   }
 
   componentDidMount() {
+    if (localStorage.getItem("token") === null) {
+      window.location = "/#/";
+    }
     this.handleDelete();
   }
 
@@ -29,15 +32,15 @@ class DeleteGif extends React.Component {
         if (status === "success") {
           const { message } = data;
           this.setState({ message });
-        } else{
-          this.setState({message: data.message});
+        } else {
+          this.setState({ message: data.message });
         }
       })
       .catch(error => console.error(error));
   }
 
   render() {
-    return (
+        return (
       <div className="container">
         <div className="row">
           <div className="col-lg-12 display-5 font-weight-bolder mt-5 mb-4">

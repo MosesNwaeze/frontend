@@ -11,24 +11,23 @@ class CreateAccount extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    if (localStorage.getItem("token") === null) {
+      window.location = "/#/";
+    }
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-
-    const elements = document.querySelector(`form[name = User]`).elements;
-    const formData = {};
-    for (let i = 0; i < elements.length; i++) {
-      let item = elements.item(i);
-      formData[item.name] = item.value;
-    }
-    const serializedData = JSON.stringify(formData);
+    const form = event.target;
+    const formData = new FormData(form);
     switch (formData.department) {
       case "Admin": {
         fetch("https://teamwork-backends.herokuapp.com/api/v1/auth/admin", {
           method: "POST",
-          body: serializedData,
+          body: formData,
           headers: {
             "Accept-Version": 1.5,
-            "Content-Type": "application/x-www-form-urlencoded",
             Authorization: "Bearer " + localStorage.getItem("token")
           }
         })
@@ -57,10 +56,10 @@ class CreateAccount extends React.Component {
       case formData.department: {
         fetch("https://teamwork-backends.herokuapp.com/api/v1/auth/user", {
           method: "POST",
-          body: serializedData,
+          body: formData,
           headers: {
             "Accept-Version": 1.5,
-            "Content-Type": "application/x-www-form-urlencoded",
+
             Authorization: "Bearer " + localStorage.getItem("token")
           }
         })
@@ -187,7 +186,7 @@ class CreateAccount extends React.Component {
                           id="female"
                         />
                         <label
-                          className="custom-control-label"
+                          className="custom-control-label text-light"
                           htmlFor="female"
                         >
                           Female
@@ -202,7 +201,10 @@ class CreateAccount extends React.Component {
                           id="male"
                           defaultChecked
                         />
-                        <label className="custom-control-label" htmlFor="male">
+                        <label
+                          className="custom-control-label text-light"
+                          htmlFor="male"
+                        >
                           Male
                         </label>
                       </div>
@@ -235,7 +237,7 @@ class CreateAccount extends React.Component {
                         <option value="Admin">Administration</option>
                         <option value="Health">Health Care</option>
                         <option value="Social">Social Workers</option>
-                        <option value="Security" defaultValue>
+                        <option value="Security" selected>
                           Security
                         </option>
                         <option value="Procurement">Procurement</option>
@@ -259,13 +261,14 @@ class CreateAccount extends React.Component {
                     <div className="form-group">
                       <button
                         type="submit"
-                        className="btn btn-success form-control"
+                        className="btn form-control text-light"
+                        style={{ background: "#46216D" }}
                       >
                         Create Account
                       </button>
                       <button
                         type="reset"
-                        className="btn btn-secondary form-control"
+                        className="btn btn-danger form-control"
                       >
                         Reset Entries
                       </button>

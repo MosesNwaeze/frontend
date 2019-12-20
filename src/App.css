@@ -1,6 +1,6 @@
 body {
-  padding: 0px 40px;
-  background: #6541AA;
+  padding: 0px;
+  background: #6541aa;
 }
 
 .App {
@@ -12,28 +12,38 @@ body {
 }
 
 .Header {
-  background: #2B0639;
+  background: #2b0639;
 }
 
 .Content {
-  background: #AE98D8;
+  background: #ae98d8;
   width: 100%;
-  }
+}
 
 .Sidebar {
-  background: #AE98D8;
+  background: #ae98d8;
 }
 
 .Footer {
-  background: #2B0639;
+  background: #2b0639;
 }
 
 .Logo {
   text-align: left;
 }
-
-.SiteName {
+.SiteName h1 {
+  padding: 0;
+  border-radius: 1%;
+  margin-bottom: 0px;
+  font-stretch: condensed;
+  display: block;
+  font-family: 'Times New Roman', Times, serif;
+  list-style: none;
 }
+.SiteName h1:hover {
+  color:#2b0639;
+}
+
 
 .success {
   background: blanchedalmond;

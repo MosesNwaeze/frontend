@@ -41,6 +41,7 @@ class Login extends React.Component {
           localStorage.setItem("userId", data.userId);
           localStorage.setItem("firstname", data.firstname);
           localStorage.setItem("lastname", data.lastname);
+          
           const userId = data.userId;
           if (userId.toUpperCase().substr(0, 3) === "ADM") {
             window.location = "/#/admin";
@@ -115,7 +116,8 @@ class Login extends React.Component {
 
                     <button
                       type="submit"
-                      className="btn btn-success btn-block btn-user"
+                      className="btn  btn-block btn-user"
+                      style={{ color: "white", background: "#46216D" }}
                     >
                       Login
                     </button>

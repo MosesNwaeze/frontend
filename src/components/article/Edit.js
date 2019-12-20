@@ -11,6 +11,12 @@ class EditArticle extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    if (localStorage.getItem("token") === null) {
+      window.location = "/#/";
+    }
+  }
+
   async handleSubmit(event) {
     event.preventDefault();
     const { id } = this.props.match.params;
@@ -92,7 +98,11 @@ class EditArticle extends React.Component {
               </div>
 
               <div className="form-group">
-                <button type="submit" className="btn btn-success form-control">
+                <button
+                  type="submit"
+                  className="btn form-control"
+                  style={{ color: "white", background: "#46216D" }}
+                >
                   Save Changes
                 </button>
               </div>

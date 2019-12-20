@@ -20,6 +20,9 @@ class Admin extends React.Component {
   }
 
   componentDidMount() {
+    if (localStorage.getItem("token") === null) {
+      window.location = "/#/";
+    }
     fetch("https://teamwork-backends.herokuapp.com/api/v1/flags", {
       method: "GET",
       headers: {
@@ -51,7 +54,6 @@ class Admin extends React.Component {
         if (status === "success") {
           this.setState({ clear: data.data });
           this.setState({ flags: [] });
-
         } else {
           this.setState({ clearError: data.message });
         }
@@ -60,7 +62,7 @@ class Admin extends React.Component {
   }
 
   render() {
-    const { flags } = this.state;
+        const { flags } = this.state;
     let article = [];
     let gif = [];
     let articleComment = [];

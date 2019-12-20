@@ -13,6 +13,12 @@ class CreateGif extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount() {
+    if (localStorage.getItem("token") === null) {
+      window.location = "/#/";
+    }
+  }
+
   handleChange(event) {
     this.setState({ file: event.target.files[0] });
   }
@@ -84,8 +90,8 @@ class CreateGif extends React.Component {
           </div>
           <button
             type="submit"
-            className="btn form-control btn-success"
-            style={{ color: "white" }}
+            className="btn form-control"
+            style={{ color: "white", background: "#46216D" }}
           >
             Upload
           </button>

@@ -11,6 +11,12 @@ class GifComment extends React.Component {
     this.createComment = this.createComment.bind(this);
   }
 
+  componentDidMount() {
+    if (localStorage.getItem("token") === null) {
+      window.location = "/#/";
+    }
+  }
+
   createComment(event) {
     event.preventDefault();
     const { id } = this.props.match.params;
@@ -84,7 +90,11 @@ class GifComment extends React.Component {
               ></textarea>
             </div>{" "}
             <div className="form-group">
-              <button type="submit" className="btn btn-success form-control">
+              <button
+                type="submit"
+                className="btn  form-control"
+                style={{ color: "white", background: "#46216D" }}
+              >
                 Create Comment
               </button>
             </div>
