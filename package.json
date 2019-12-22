@@ -19,7 +19,7 @@
     "redux-react-session": "^2.6.1",
     "universal-cookie": "^4.0.2"
   },
-  "homepage": "https://mosesnwaeze.github.io/#/",
+  "homepage": "https://mosesnwaeze.github.io/#",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
