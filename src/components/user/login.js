@@ -41,7 +41,7 @@ class Login extends React.Component {
           localStorage.setItem("userId", data.userId);
           localStorage.setItem("firstname", data.firstname);
           localStorage.setItem("lastname", data.lastname);
-          
+
           const userId = data.userId;
           if (userId.toUpperCase().substr(0, 3) === "ADM") {
             window.location = "/#/admin";

@@ -1,22 +1,24 @@
 import React from "react";
-import { HashRouter as Router, Link } from "react-router-dom";
 
 class Logout extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.redirectPath = this.redirectPath.bind(this);
+  }
   componentDidMount() {
-      localStorage.removeItem('token');
-     
-  }  
+    localStorage.removeItem("token");
+    this.redirectPath();
+  }
+  redirectPath() {
+    setInterval(() => {
+      window.location = "/";
+    }, 5000);
+  }
   render() {
     return (
       <div className="container">
-        <h1 className="text-light py-3 text-center">
-          Logout success.{" "}
-          <Router>
-            <Link to="/" className="text-success text-decoration-none text-style-italic">
-              Click To Login
-            </Link>
-          </Router>
-        </h1>
+        <h1 className="text-light py-3 text-center">Logout successful. </h1>
       </div>
     );
   }

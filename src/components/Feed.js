@@ -21,6 +21,9 @@ class Feed extends React.Component {
   }
 
   componentDidMount() {
+    if (localStorage.getItem("token") === null) {
+      window.location = "/#/";
+    }
     this.getFeed();
   }
 
