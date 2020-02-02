@@ -10,23 +10,22 @@ import SearchArticle from "../article/Search.js";
 import SearchGif from "../gif/Search.js";
 import ArticleComment from "../article/Comment";
 import GifComment from "../gif/Comment";
+import { createBrowserHistory } from "history";
 
 class Content extends React.Component {
   render() {
+    const history = createBrowserHistory();
     return (
       <div className="Content">
-        <Router basename="/">
+        <Router history={history}>
           <div>
             <Switch>
               <Route path="/app/feed" component={Feed} />
               <Route path="/app/create-article" component={CreateArticle} />
               <Route path="/app/edit-article/:id" component={EditArticle} />
-              <Route
-                path="/app/delete-article/:id/:email"
-                component={DeleteArticle}
-              />
+              <Route path="/app/delete-article/:id" component={DeleteArticle} />
               <Route path="/app/create-gif" component={CreateGif} />
-              <Route path="/app/delete-gif/:id/:email" component={DeleteGif} />
+              <Route path="/app/delete-gif/:id" component={DeleteGif} />
               <Route path="/app/search-article/:id" component={SearchArticle} />
               <Route path="/app/search-gif/:id" component={SearchGif} />
               <Route path="/app/comment-gif/:id" component={GifComment} />

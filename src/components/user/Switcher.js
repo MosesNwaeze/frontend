@@ -6,12 +6,14 @@ import App from "../../App";
 import Admin from "../admin/Admin";
 import Logout from './Logout';
 import UpdateRecord from './UpdateRecord';
+import {createBrowserHistory} from 'history';
 
 class Switcher extends React.Component {
   render() {
+    const history = createBrowserHistory();
     return (
       <div className="container">
-        <Router basename="/">
+        <Router history={history}>
           <div>
             <Switch>
               <Route component={Login} path="/" exact />

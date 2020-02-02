@@ -15,8 +15,9 @@ class UpdateRecord extends Component {
   }
 
   componentDidMount() {
+    const { history } = this.props;
     if (localStorage.getItem("token") === null) {
-      window.location = "/#/";
+      history.push("/");
     }
     const { email } = this.props.match.params;
     this.fetchAccount(email);
@@ -80,7 +81,7 @@ class UpdateRecord extends Component {
         <h1 className="text-light text-center">
           Update Your Record &nbsp;&nbsp;&nbsp;
           <Router>
-            <Link to="/app" className="text-decoration-none text-success">Back To Home</Link>
+            <Link to="/app" className="text-decoration-none text-success"><span style={{color:"#46216D"}}>Back To Home</span></Link>
           </Router>
         </h1>
         <h4 className="display-5 font-weight-bolder text-center text-success bg-light">

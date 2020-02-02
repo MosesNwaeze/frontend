@@ -21,8 +21,9 @@ class Feed extends React.Component {
   }
 
   componentDidMount() {
+    const { history } = this.props;
     if (localStorage.getItem("token") === null) {
-      window.location = "/#/";
+      history.push("/");
     }
     this.getFeed();
   }

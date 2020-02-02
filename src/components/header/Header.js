@@ -105,14 +105,14 @@ class Header extends React.Component {
             </p>
           </div>
           <div
-            class="col-4 UserImage"
+            className="col-4 UserImage"
             style={{ background: "#2B0639", width: "333px" }}
           >
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between mt-4">
-              <h6 class="m-0 font-weight-bold text-light h5">Profile Pic</h6>
-              <div class="dropdown no-arrow">
+            <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between mt-4">
+              <h6 className="m-0 font-weight-bold text-light h5">Profile Pic</h6>
+              <div className="dropdown no-arrow">
                 <a
-                  class="dropdown-toggle"
+                  className="dropdown-toggle"
                   href="#"
                   role="button"
                   id="dropdownMenuLink"
@@ -120,29 +120,29 @@ class Header extends React.Component {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  <i className="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                 </a>
                 <div
-                  class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                  className="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                   aria-labelledby="dropdownMenuLink"
                 >
-                  <div class="dropdown-header">Dropdown Header:</div>
+                  <div className="dropdown-header">Dropdown Header:</div>
                   <Router>
                     <a
-                      class="dropdown-item"
+                      className="dropdown-item"
                       href="#"
                       onClick={this.changeProfilePic}
                     >
                       Change Profile Pic
                     </a>
                     <Link
-                      class="dropdown-item"
+                      className="dropdown-item"
                       to={"/update-record/" + localStorage.getItem("email")}
                     >
                       Update Account
                     </Link>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <div className="dropdown-divider"></div>
+                    <a className="dropdown-item" href="#">
                       Something else here
                     </a>
                   </Router>
@@ -150,7 +150,7 @@ class Header extends React.Component {
               </div>
             </div>
 
-            <div class="card-body px-0">
+            <div className="card-body px-0">
               <p className="mb-1">
                 <img
                   src={localStorage.getItem("profile-pic") || "images/pip3.jpg"}

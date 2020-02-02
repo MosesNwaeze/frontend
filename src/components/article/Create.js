@@ -10,8 +10,9 @@ class CreateArticle extends React.Component {
   }
 
   componentDidMount() {
+    const { history } = this.props;
     if (localStorage.getItem("token") === null) {
-      window.location = "/#/";
+      history.push("/");
     }
   }
 
@@ -83,7 +84,7 @@ class CreateArticle extends React.Component {
             <button
               type="submit"
               className="btn  form-control"
-              style={{ background: "#46216D" }}
+              style={{ background: "#46216D", color: "white" }}
             >
               Create Article
             </button>

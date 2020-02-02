@@ -14,6 +14,7 @@ class Login extends React.Component {
   }
 
   async handleSubmit(event) {
+    const { history } = this.props;
     event.preventDefault();
     const formEle = new FormData(document.querySelector(`form[name = login]`));
     const formData = {
@@ -44,9 +45,11 @@ class Login extends React.Component {
 
           const userId = data.userId;
           if (userId.toUpperCase().substr(0, 3) === "ADM") {
-            window.location = "/#/admin";
+            //window.location = "/#/admin";
+            history.push("/admin");
           } else {
-            window.location = "/#/app/feed";
+            //window.location = "/#/app/feed";
+            history.push("/app/feed");
           }
         } else {
           const { message } = data;
@@ -81,8 +84,7 @@ class Login extends React.Component {
                       {message}
                     </h3>
                     <h3 className="text-center text-white">
-                      You must login to use this application or signup to create
-                      an account
+                      You must login to use this application
                     </h3>
                   </div>
 
@@ -131,17 +133,6 @@ class Login extends React.Component {
                         replace
                       >
                         Forgot Password?
-                      </Link>
-                    </Router>
-                  </div>
-                  <div className="text-center">
-                    <Router>
-                      <Link
-                        to="/admin/create-account"
-                        className="small text-white"
-                        replace
-                      >
-                        Create Account!
                       </Link>
                     </Router>
                   </div>

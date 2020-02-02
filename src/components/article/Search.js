@@ -19,8 +19,9 @@ class SearchArticle extends React.Component {
   }
 
   componentDidMount() {
-    if (localStorage.getItem("token") === null ) {
-      window.location = "/#/";
+    const { history } = this.props;
+    if (localStorage.getItem("token") === null) {
+      history.push("/");
     }
     const { id } = this.props.match.params;
     this.getArticle(id);

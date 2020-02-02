@@ -12,8 +12,9 @@ class DeleteArticle extends React.Component {
   }
 
   componentDidMount() {
-    if (localStorage.getItem("token") === null ) {
-      window.location = "/#/";
+    const { history } = this.props;
+    if (localStorage.getItem("token") === null) {
+      history.push("/");
     }
     this.handleDelete();
   }

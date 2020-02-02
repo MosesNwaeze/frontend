@@ -4,6 +4,7 @@ class Logout extends React.Component {
   constructor(props) {
     super(props);
 
+    
     this.redirectPath = this.redirectPath.bind(this);
   }
   componentDidMount() {
@@ -11,9 +12,10 @@ class Logout extends React.Component {
     this.redirectPath();
   }
   redirectPath() {
+    const {history} = this.props;
     setInterval(() => {
-      window.location = "/";
-    }, 5000);
+      history.push('/');
+    }, 1000);
   }
   render() {
     return (

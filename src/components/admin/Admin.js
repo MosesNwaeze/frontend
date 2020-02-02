@@ -20,8 +20,9 @@ class Admin extends React.Component {
   }
 
   componentDidMount() {
+    const { history } = this.props;
     if (localStorage.getItem("token") === null) {
-      window.location = "/#/";
+      history.push("/");
     }
     fetch("https://teamwork-backends.herokuapp.com/api/v1/flags", {
       method: "GET",
@@ -62,7 +63,7 @@ class Admin extends React.Component {
   }
 
   render() {
-        const { flags } = this.state;
+    const { flags } = this.state;
     let article = [];
     let gif = [];
     let articleComment = [];
@@ -89,7 +90,7 @@ class Admin extends React.Component {
     const max = Math.max(...length);
     let counter = 1;
     return (
-      <div className="container-fluid">
+      <div className="container-fluid mt-2">
         <div id="page-top">
           {/** Page Wrapper **/}
           <div id="wrapper">
@@ -106,24 +107,6 @@ class Admin extends React.Component {
                   >
                     <i className="fa fa-bars"></i>
                   </button>
-
-                  {/** Topbar Search **/}
-                  <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div className="input-group">
-                      <input
-                        type="text"
-                        className="form-control bg-light border-0 small"
-                        placeholder="Search for..."
-                        aria-label="Search"
-                        aria-describedby="basic-addon2"
-                      />
-                      <div className="input-group-append">
-                        <button className="btn btn-primary" type="button">
-                          <i className="fas fa-search fa-sm"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
 
                   <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
                     <button className="btn " type="button">
