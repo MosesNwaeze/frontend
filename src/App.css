@@ -1,0 +1,58 @@
+body {
+  padding: 0px;
+  background: #6541aa;
+}
+
+.App {
+  text-align: left;
+  background: #673ab7;
+  color: white;
+  font-family: sans-serif, serif, Georgia, "New Cambria", "Times New Roman",
+    Times;
+}
+
+.Header {
+  background: #2b0639;
+}
+
+.Content {
+  background: #ae98d8;
+  width: 100%;
+}
+
+.Sidebar {
+  background: #ae98d8;
+}
+
+.Footer {
+  background: #2b0639;
+}
+
+.Logo {
+  text-align: left;
+}
+.SiteName h1 {
+  padding: 0;
+  border-radius: 1%;
+  margin-bottom: 0px;
+  font-stretch: condensed;
+  display: block;
+  font-family: 'Times New Roman', Times, serif;
+  list-style: none;
+}
+.SiteName h1:hover {
+  color:#2b0639;
+}
+
+
+.success {
+  background: blanchedalmond;
+  color: green;
+  font-style: normal;
+}
+
+.error {
+  background: honeydew;
+  color: red;
+  font-style: normal;
+}
