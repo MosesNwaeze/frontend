@@ -49,7 +49,7 @@ class Login extends React.Component {
             history.push("/admin");
           } else {
             //window.location = "/#/app/feed";
-            history.push("/app/feed");
+            history.push("/frontend/feed");
           }
         } else {
           const { message } = data;
