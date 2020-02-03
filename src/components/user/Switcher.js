@@ -19,7 +19,7 @@ class Switcher extends React.Component {
               <Route component={Login} path="/" exact />
               <Route component={CreateAccount} path="/admin/create-account" />
               <Route component={Admin} path="/admin" />
-              <Route component={App} path="/app" />
+              <Route component={App} path="/fontend" />
               <Route component={Logout} path="/logout" />
               <Route component={UpdateRecord} path="/update-record/:email" />
             </Switch>
