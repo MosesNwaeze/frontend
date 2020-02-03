@@ -16,7 +16,7 @@ class Sidebar extends React.Component {
               <hr style={{ backgroundColor: "white" }}/>
               <div className="list-group">
                 <Link
-                  to="/app/create-article"
+                  to="/frontend/create-article"
                   className="list-group-item list-group-item-action list-group-item-success mb-4"
                   style={{ background: "#6338B0", color: "white" }}
                 >
@@ -24,7 +24,7 @@ class Sidebar extends React.Component {
                 </Link>
 
                 <Link
-                  to="/app/create-gif"
+                  to="/frontend/create-gif"
                   className="list-group-item list-group-item-action list-group-item-success mb-4"
                   style={{ background: "#6338B0", color: "white" }}
                 >
@@ -32,7 +32,7 @@ class Sidebar extends React.Component {
                 </Link>
 
                 <Link
-                  to="/app/feed"
+                  to="/frontend/feed"
                   className="list-group-item   list-group-item-action list-group-item-success mb-4"
                   style={{ background: "#6338B0", color: "white" }}
                 >
