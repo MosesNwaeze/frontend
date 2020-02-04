@@ -142,10 +142,6 @@ class Admin extends React.Component {
                         <span className="mr-2 d-none d-lg-inline text-gray-600 small">
                           Welcome {localStorage.getItem("lastname")}
                         </span>
-                        <img
-                          className="img-profile rounded-circle"
-                          src="https://source.unsplash.com/QAB-WJcbgJk/60x60"
-                        />
                       </a>
                     </li>
                   </ul>

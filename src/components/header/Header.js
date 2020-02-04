@@ -58,7 +58,7 @@ class Header extends React.Component {
         <div className="row">
           <div className="col-3 Logo">
             <img
-              src="/images/logo3.jpg"
+              src="images/logo3.jpg"
               alt="Logo"
               className="img rounded d-block img-fluid"
             />

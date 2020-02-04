@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, HashRouter as Router, Link } from "react-router-dom";
 
 class CreateAccount extends React.Component {
   constructor(props) {
@@ -93,6 +93,7 @@ class CreateAccount extends React.Component {
   render() {
     const { message } = this.state;
     const { indicator } = this.state;
+    const messageStyle = message ? "block" : "none";
     const style = indicator
       ? { color: "green", fontWidth: "bold" }
       : { color: "red", fontWidth: "bold" };
@@ -107,7 +108,14 @@ class CreateAccount extends React.Component {
               <div className="card-body p-0">
                 <div className="p-5">
                   <div className="text-center">
-                    <h3 style={style}>{message}</h3>
+                    <h3 style={style}>
+                      {message} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span style={{ display: messageStyle }}>
+                        <Router>
+                          <Link to="/admin">Back To Admin</Link>
+                        </Router>
+                      </span>
+                    </h3>
                   </div>
                   <div className="my-5 text-center">
                     <h3 className="font-weight-bold">Account Creation Form</h3>
