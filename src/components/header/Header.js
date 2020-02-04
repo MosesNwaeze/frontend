@@ -86,9 +86,7 @@ class Header extends React.Component {
                 Welcome{" "}
                 <i>
                   <b style={{ color: "#D4C8EA" }}>
-                    {localStorage.getItem("lastname") +
-                      " " +
-                      localStorage.getItem("firstname")}
+                    {localStorage.getItem("lastname")}
                   </b>
                 </i>
                 &nbsp;&nbsp;&nbsp;
@@ -109,7 +107,9 @@ class Header extends React.Component {
             style={{ background: "#2B0639", width: "333px" }}
           >
             <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between mt-4">
-              <h6 className="m-0 font-weight-bold text-light h5">Profile Pic</h6>
+              <h6 className="m-0 font-weight-bold text-light h5">
+                Profile Pic
+              </h6>
               <div className="dropdown no-arrow">
                 <a
                   className="dropdown-toggle"

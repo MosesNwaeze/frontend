@@ -109,7 +109,7 @@ class CreateAccount extends React.Component {
                 <div className="p-5">
                   <div className="text-center">
                     <h3 style={style}>
-                      {message} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      {message} &nbsp;&nbsp;
                       <span style={{ display: messageStyle }}>
                         <Router>
                           <Link to="/admin">Back To Admin</Link>
