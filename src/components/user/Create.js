@@ -22,6 +22,7 @@ class CreateAccount extends React.Component {
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
+    const { history } = this.props;
     switch (formData.department) {
       case "Admin": {
         fetch("https://teamwork-backends.herokuapp.com/api/v1/auth/admin", {
@@ -38,7 +39,7 @@ class CreateAccount extends React.Component {
               const { message } = data;
               this.setState({ message });
               setInterval(() => {
-                window.location = "/";
+                history.push('/');
               }, 5000);
             } else {
               const { message } = data;
@@ -70,7 +71,7 @@ class CreateAccount extends React.Component {
               const { message } = data;
               this.setState({ message });
               setInterval(() => {
-                window.location = "/#/";
+                history.push('/');
               }, 5000);
             } else {
               const { message } = data;
