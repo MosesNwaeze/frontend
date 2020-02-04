@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class DeleteGif extends React.Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class DeleteGif extends React.Component {
   }
 
   render() {
-        return (
+    return (
       <div className="container">
         <div className="row">
           <div className="col-lg-12 display-5 font-weight-bolder mt-5 mb-4">
@@ -53,4 +54,4 @@ class DeleteGif extends React.Component {
   }
 }
 
-export default DeleteGif;
+export default withRouter(DeleteGif);

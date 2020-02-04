@@ -1,4 +1,5 @@
 import React from "react";
+import {withRouter} from 'react-router-dom';
 
 class CreateAccount extends React.Component {
   constructor(props) {
@@ -286,4 +287,4 @@ class CreateAccount extends React.Component {
   }
 }
 
-export default CreateAccount;
+export default withRouter(CreateAccount);

@@ -1,4 +1,5 @@
 import React from "react";
+import {withRouter} from 'react-router-dom';
 
 class Logout extends React.Component {
   constructor(props) {
@@ -25,4 +26,4 @@ class Logout extends React.Component {
     );
   }
 }
-export default Logout;
+export default withRouter(Logout);

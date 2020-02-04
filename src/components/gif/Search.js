@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from 'react-router-dom';
 
 class SearchGif extends React.Component {
   constructor(props) {
@@ -224,4 +225,4 @@ class SearchGif extends React.Component {
   }
 }
 
-export default SearchGif;
+export default withRouter(SearchGif);

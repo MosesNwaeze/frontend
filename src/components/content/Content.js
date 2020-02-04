@@ -10,14 +10,14 @@ import SearchArticle from "../article/Search.js";
 import SearchGif from "../gif/Search.js";
 import ArticleComment from "../article/Comment";
 import GifComment from "../gif/Comment";
-import { createBrowserHistory } from "history";
+import { withRouter } from "react-router-dom";
 
 class Content extends React.Component {
   render() {
-    const history = createBrowserHistory();
+    
     return (
       <div className="Content">
-        <Router history={history}>
+        <Router>
           <div>
             <Switch>
               <Route path="/frontend/feed" component={Feed} />
@@ -41,4 +41,4 @@ class Content extends React.Component {
   }
 }
 
-export default Content;
+export default withRouter(Content);

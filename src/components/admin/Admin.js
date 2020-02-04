@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { HashRouter as Router, Link } from "react-router-dom";
+import { HashRouter as Router, Link, withRouter } from "react-router-dom";
 
 class Admin extends React.Component {
   constructor(props) {
@@ -339,4 +339,4 @@ class Admin extends React.Component {
   }
 }
 
-export default Admin;
+export default withRouter(Admin);

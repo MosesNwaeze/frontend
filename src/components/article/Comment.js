@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class ArticleComment extends React.Component {
   constructor(props) {
@@ -107,4 +108,4 @@ class ArticleComment extends React.Component {
     );
   }
 }
-export default ArticleComment;
+export default withRouter(ArticleComment);

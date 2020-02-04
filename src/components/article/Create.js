@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class CreateArticle extends React.Component {
   constructor(props) {
@@ -95,4 +96,4 @@ class CreateArticle extends React.Component {
   }
 }
 
-export default CreateArticle;
+export default withRouter(CreateArticle);

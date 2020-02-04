@@ -67,7 +67,7 @@ class Header extends React.Component {
             <h1 className="font-weight-bolder	h1 pt-2 text-center">
               <Router>
                 <Link
-                  to="/app/feed"
+                  to="/frontend/feed"
                   className="text-decoration-none text-light"
                 >
                   Team - Work

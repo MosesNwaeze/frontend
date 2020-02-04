@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class DeleteArticle extends React.Component {
   constructor(props) {
@@ -21,20 +22,23 @@ class DeleteArticle extends React.Component {
 
   async handleDelete() {
     const { id } = this.props.match.params;
-    await fetch(`https://teamwork-backends.herokuapp.com/api/v1/articles/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-        "Accept-Version": 1.5
+    await fetch(
+      `https://teamwork-backends.herokuapp.com/api/v1/articles/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+          "Accept-Version": 1.5
+        }
       }
-    })
+    )
       .then(response => response.json())
       .then(({ status, data }) => {
         if (status === "success") {
           const { message } = data;
           this.setState({ message });
-        } else{
-          this.setState({message: data.message});
+        } else {
+          this.setState({ message: data.message });
         }
       })
       .catch(error => console.error(error));
@@ -53,4 +57,4 @@ class DeleteArticle extends React.Component {
   }
 }
 
-export default DeleteArticle;
+export default withRouter(DeleteArticle);
