@@ -23,7 +23,7 @@ class CreateAccount extends React.Component {
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
-    const { history } = this.props;
+
     switch (formData.department) {
       case "Admin": {
         fetch("https://teamwork-backends.herokuapp.com/api/v1/auth/admin", {

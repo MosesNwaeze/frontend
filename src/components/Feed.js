@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Link } from "react-router-dom";
+import { HashRouter as Router, Link, withRouter } from "react-router-dom";
 
 class Feed extends React.Component {
   constructor(props) {
@@ -136,8 +136,8 @@ class Feed extends React.Component {
 
   render() {
     const { data } = this.state;
-    const pathSearchArticle = "/app/search-article/";
-    const pathSearchGif = "/app/search-gif/";
+    const pathSearchArticle = "/frontend/search-article/";
+    const pathSearchGif = "/frontend/search-gif/";
     return (
       <div className="row">
         <div className="col-md-12 mb-4">
@@ -176,13 +176,13 @@ class Feed extends React.Component {
                   <p className="col">
                     {item.body.substr(0, 4) === "http" ? (
                       <Router>
-                        <Link to={"/app/comment-gif/" + item.authorId}>
+                        <Link to={"/frontend/comment-gif/" + item.authorId}>
                           Comment
                         </Link>
                       </Router>
                     ) : (
                       <Router>
-                        <Link to={"/app/comment-article/" + item.authorId}>
+                        <Link to={"/frontend/comment-article/" + item.authorId}>
                           Comment
                         </Link>
                       </Router>
@@ -214,19 +214,19 @@ class Feed extends React.Component {
                   >
                     {item.body.substr(0, 4) === "http" ? (
                       <Router>
-                        <Link to={"/app/delete-gif/" + item.authorId}>
+                        <Link to={"/frontend/delete-gif/" + item.authorId}>
                           Delete
                         </Link>
                       </Router>
                     ) : (
                       <Router>
-                        <Link to={"/app/delete-article/" + item.authorId}>
+                        <Link to={"/frontend/delete-article/" + item.authorId}>
                           Delete
                         </Link>
                         &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                         {localStorage.setItem("articleTitle", item.title)}
                         {localStorage.setItem("articleBody", item.body)}
-                        <Link to={"/app/edit-article/" + item.authorId}>
+                        <Link to={"/frontend/edit-article/" + item.authorId}>
                           Edit
                         </Link>
                       </Router>
@@ -266,4 +266,4 @@ class Feed extends React.Component {
   }
 }
 
-export default Feed;
+export default withRouter(Feed);
