@@ -1,5 +1,5 @@
 import React from "react";
-import {withRouter} from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 class CreateAccount extends React.Component {
   constructor(props) {
@@ -39,9 +39,6 @@ class CreateAccount extends React.Component {
             if (status === "success") {
               const { message } = data;
               this.setState({ message });
-              setInterval(() => {
-                history.push('/');
-              }, 5000);
             } else {
               const { message } = data;
               this.setState({ message });
@@ -71,9 +68,6 @@ class CreateAccount extends React.Component {
             if (status === "success") {
               const { message } = data;
               this.setState({ message });
-              setInterval(() => {
-                history.push('/');
-              }, 5000);
             } else {
               const { message } = data;
               this.setState({ message });
